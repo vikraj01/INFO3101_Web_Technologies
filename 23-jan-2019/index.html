@@ -1,0 +1,21 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="date"></p>
+    <p id="fdate"></p>
+    <p id="sdate"></p>
+    <p id="ldate"></p>
+    <script>
+        document.getElementById('date').innerHTML = new Date('December 17, 1995 03:24:00').toLocaleDateString();
+        document.getElementById('fdate').innerHTML = new Date('December 17, 1995 03:24:00').toISOString();
+        document.getElementById('sdate').innerHTML = new Date('December 17, 1995 03:24:00').toDateString();
+        document.getElementById('ldate').innerHTML = new Date('December 17, 1995 03:24:00').toLocaleString();
+
+    </script>
+</body>
+</html>

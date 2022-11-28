@@ -1,0 +1,21 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Display time: </h1>
+    <span id="display-time"></span>
+    <p id="date-time"></p>
+    <p id="formatted-time"></p>
+    <script>
+        let date = new Date();
+        document.getElementById('display-time').innerHTML = date.toDateString();
+        document.getElementById('date-time').innerHTML = date;
+        document.getElementById('formatted-time').innerHTML  = `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`
+    </script>
+
+</body>
+</html>

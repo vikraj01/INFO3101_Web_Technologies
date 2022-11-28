@@ -1,0 +1,97 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 50%;
+            margin: auto;
+            text-align: center;
+        }
+
+        #inputs {
+            flex-direction: column;
+            display: flex;
+
+            text-align: center;
+            justify-content: center;
+            flex-wrap: nowrap;
+        }
+
+        .num {
+            width: 150px;
+            margin: .3em auto;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div id="inputs">
+            <input class="num" type="number" />
+            <input class="num" type="number" />
+            <input class="num" type="number" />
+        </div>
+        <button id="Add">Add More Numbers</button>
+
+        <button id="display">Display All the numbers</button>
+        <p id="show"></p>
+
+        <input id="key" placeholder="key">
+        <button id="search">Search</button>
+        <p id="search-status"></p>
+
+        <button id="sort">Sort and Display the number</button>
+        <p id="diplay-sort"></p>
+    </div>
+
+    <script>
+        document.getElementById('Add').addEventListener('click', () => {
+            var tag = document.createElement('input');
+            tag.setAttribute('class', 'num');
+            tag.setAttribute('type', 'number');
+            document.getElementById('inputs').appendChild(tag)
+        })
+
+        document.getElementById('display').addEventListener('click', () => {
+            let arr = []
+            document.querySelectorAll('.num').forEach((ele) => arr.push(ele.value));
+            document.getElementById('show').innerHTML = arr.join(' ')
+        })
+
+        document.getElementById('search').addEventListener('click', () => {
+            let arr = []
+
+            Array.from(document.querySelectorAll('.num')).map(item => console.log("Itme",item.value))
+
+            document.querySelectorAll('.num').forEach((ele) => arr.push(+ele.value));
+            const key = +document.querySelector('#key').value;
+            let index = arr.findIndex(item => item === key);
+            if (index !== -1){
+                document.getElementById('search-status').innerHTML = `${key} is found at index ${index}`
+            }else{
+                document.getElementById('search-status').innerHTML = `${key} is not found`
+
+            }
+            //console.log(index)
+        })
+
+        document.getElementById('sort').addEventListener('click', () => {
+            let arr = []
+            document.querySelectorAll('.num').forEach((ele) => arr.push(ele.value));
+
+            arr.sort((a,b) => a-b);
+            document.getElementById('diplay-sort').innerHTML = arr.join(' ');
+        })
+
+
+    </script>
+</body>
+
+</html>
